@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tag;
+use App\Category;
 
-
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $categories = Category::all();
 
-        return view('admin.tags.index')
-            ->with('tags', $tags);
+        return view('admin.categories.index')
+            ->with('categories', $categories);
     }
 
     /**
@@ -29,7 +28,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -40,13 +39,13 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $tag = new Tag;
+        $category = new Category;
 
-        $tag->name = $request->name;
+        $category->name = $request->name;
 
-        $tag->save();
+        $category->save();
         
-        return redirect(route('tags.index'));
+        return redirect(route('categories.index'));
     }
 
     /**
@@ -57,9 +56,9 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $tag = Tag::find($id);
+        $category = Category::find($id);
         
-        return view('admin.tags.show')->withTag($tag);
+        return view('admin.categories.show')->withCategory($category);
     }
 
     /**
@@ -70,8 +69,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::find($id);
-        return view('admin.tags.edit')->withTag($tag);
+        $category = Category::find($id);
+        return view('admin.categories.edit')->withCategory($category);
     }
 
     /**
@@ -83,12 +82,12 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tag::find($id);
+        $category = Category::find($id);
         
-        $tag->name = $request->input('name');
-        $tag->save();
+        $category->name = $request->input('name');
+        $category->save();
 
-        return redirect(route('tags.index'));
+        return redirect(route('categories.index'));
     }
 
     /**
@@ -99,8 +98,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        Tag::find($id)->delete();
+        Category::find($id)->delete();
         
-        return redirect(route('tags.index'));
+        return redirect(route('categories.index'));
     }
 }

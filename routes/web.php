@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('admin', ['uses' => 'Admin\DashboardController@index', 'as' => 'admin']);
+
 Route::resource('categories', 'Admin\CategoriesController');
 Route::resource('tags', 'Admin\TagsController');
+Route::resource('product', 'Admin\ProductController');
 

@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/products">
+                <a class="nav-link" href="/product">
                   <span data-feather="file-text"></span>
                  Products-mine
                 </a>
