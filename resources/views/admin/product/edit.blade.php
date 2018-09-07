@@ -8,13 +8,13 @@
         <div class="panel-heading"><h2>Edit category</h2></div>
           <div class="panel-body">
 
-            <a href="{{ route('categories.index') }}" class="btn btn-success btn-sm" title="All categories">
+            <a href="{{ route('product.index') }}" class="btn btn-success btn-sm" title="All product">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back
             </a>
             <br/>
             <br/>
             <div class="table-responsive">
-              <form action="{{ route('categories.update',['id' => $category->id]) }}" method="post">
+              <form action="{{ route('product.update',['id' => $category->id]) }}" method="post">
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="card">

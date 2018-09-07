@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
+use App\Product;
 
 class ProductController extends Controller
 {
+      
     /**
      * Display a listing of the resource.
      *
@@ -15,12 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-
-        return view('admin.categories.index')
-            ->with('categories', $categories);
+         $products = Product::all();
+        return view('admin.product.index')
+            ->with('products', $products);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,9 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.products.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,15 +38,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-
-        $category->name = $request->name;
-
-        $category->save();
-        
-        return redirect(route('categories.index'));
+        $product = new Product;
+        $product->name = $request->name;
+        $product->save();
+        return redirect(route('product.index'))->with('message', 'An tag has been added');
     }
-
     /**
      * Display the specified resource.
      *
@@ -56,11 +51,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        
-        return view('admin.categories.show')->withCategory($category);
+        //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,10 +61,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.categories.edit')->withCategory($category);
+        $product = Product::find($id);
+        return view('admin.product.edit')->withTag($product);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,14 +73,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        
-        $category->name = $request->input('name');
-        $category->save();
-
-        return redirect(route('categories.index'));
+        $product = Product::find($id);
+        $product->name = $request->input('name');
+        $product->save();
+        return redirect(route('products.index'))->with('message', 'An tag has been updated');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -98,8 +86,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
-        
-        return redirect(route('categories.index'));
+        Yag::find($id)->delete();
+        return redirect(route('products.index'))->with('message', 'An tag has been deleted');
     }
+
 }

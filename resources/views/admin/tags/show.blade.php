@@ -8,7 +8,7 @@
         <div class="panel-heading"><h2>Show category</h2></div>
           <div class="panel-body">
 
-            <a href="{{ route('categories.index') }}" class="btn btn-success btn-sm" title="All categories">
+            <a href="{{ route('tags.index') }}" class="btn btn-success btn-sm" title="All tags">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back
             </a>
             <br/>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="card-footer text-muted">
                   <div class="pull-right">
-                    <a title="Edit category" href="{{ url('/categories/'.$category->id.'/edit/') }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
+                    <a title="Edit category" href="{{ url('/tags/'.$category->id.'/edit/') }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
                     <button title="Delete category" type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_category_{{ $category->id  }}"><span class="fa fa-trash-o"></span></button>
                   </div>
                 </div>

@@ -5,16 +5,16 @@
   <div class="animate fadeIn">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading"><h2>Add New category</h2></div>
+        <div class="panel-heading"><h2>Add New Product</h2></div>
           <div class="panel-body">
 
-            <a href="{{ route('categories.index') }}" class="btn btn-success btn-sm" title="All categories">
+            <a href="{{ route('product.index') }}" class="btn btn-success btn-sm" title="All product">
                 <span data-feather="arrow-left"></span>  Go Back
             </a>
             <br/>
             <br/>
             <div class="table-responsive">
-              <form action="{{ route('categories.store') }}" method="post">
+              <form action="{{ route('product.store') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="card">
                     <div class="card-block">
