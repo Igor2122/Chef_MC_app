@@ -18,8 +18,7 @@ class ProductController extends Controller
     public function index()
     {
          $products = Product::all();
-        return view('admin.product.index')
-            ->with('products', $products);
+        return view('admin.product.index')->with('products', $products);
     }
     /**
      * Show the form for creating a new resource.
@@ -28,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin.product.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -39,7 +38,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product;
-        $product->name = $request->name;
+        $product->title = $request->name;
         $product->save();
         return redirect(route('product.index'))->with('message', 'An tag has been added');
     }

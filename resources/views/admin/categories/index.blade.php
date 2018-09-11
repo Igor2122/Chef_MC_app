@@ -63,7 +63,9 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div> 
+    {{-- show the pagination --}}
+    {{$categories->links()}}   
   </div>
 </div>
 

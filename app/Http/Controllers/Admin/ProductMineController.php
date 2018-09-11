@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Category;
+use App\Product;
 
-class CategoriesController extends Controller
+
+
+class ProductMineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,10 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderby('created_at', 'asc')->paginate(2);
+        $newproducts = Product::orderby('created_at', 'acs')->paginate(10);
 
-        return view('admin.categories.index')->with('categories', $categories);
+        return view('admin.categories.show')
+            ->with('$newproducts', $newproducts);
     }
 
     /**

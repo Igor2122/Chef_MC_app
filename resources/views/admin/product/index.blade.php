@@ -12,7 +12,6 @@
               <table class="table table-hover table-striped table-sm">
                 <thead>
                   <tr>
-                    <th>Name</th>
                     <th>Title</th>
                     <th>Body</th>
                     <th>Posted On</th>
