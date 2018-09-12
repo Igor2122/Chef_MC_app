@@ -19,7 +19,7 @@
 </head>
 <body class="@yield('body_class')">
     {{--Page--}}
-    <div id="app">
+    <div>
         @yield('navigation')
 
         <!-- Page Content -->

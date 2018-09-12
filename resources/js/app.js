@@ -18,5 +18,25 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#root',
+    data: {
+        items: [],
+        message: 'Hi Vue!',
+        hasError: true,
+    },
+    created: function(){
+        this.getVueItems();
+    },
+    // created: function () {
+    //     console.log('Значение message: ' + this.message);  // `this` указывает на экземпляр app
+    // },
+    methods : {
+        getVueItems: function(){
+            axios.get('/api/news').then((response) => {
+                this.items = response.data;
+                console.log(this.items);
+            });
+        },
+
+    }
 });

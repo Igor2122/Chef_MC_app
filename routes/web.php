@@ -23,3 +23,20 @@ Route::resource('categories', 'Admin\CategoriesController');
 Route::resource('tags', 'Admin\TagsController');
 Route::resource('product', 'Admin\ProductController');
 
+Route::get('api/product', function() {
+    $results = \App\Product::all();
+    return $results;
+});
+Route::get('/product', function() {
+    return view('product');
+});
+
+Route::get('/api/news', function () {
+    $results =  \App\Product::all();
+    return $results;
+});
+
+Route::get('/news', function () {
+    return view('news');
+});
+
